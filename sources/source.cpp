@@ -61,7 +61,7 @@ void my_hash::log_init()
             <boost::log::trivial::severity_level, char>("Severity");
     logging::add_file_log // расширенная настройка
             (
-                    logging::keywords::file_name = "./log_%N.log",
+                    logging::keywords::file_name = DIRECTORY,
                     logging::keywords::rotation_size = SIZE_FILE,
                     logging::keywords::time_based_rotation
                     = boost::log::sinks::file::rotation_at_time_point{0, 0, 0},

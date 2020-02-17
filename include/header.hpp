@@ -25,6 +25,7 @@
 #define SIZE_OF_RAND_STR 9
 #define WHAT_YOU_NEED "0000"
 #define SIZE_FILE 10*1024*1024
+#define DIRECTORY "/tmp/log_%N.log"
 
 using std::vector;
 using std::string;
