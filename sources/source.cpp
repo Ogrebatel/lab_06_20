@@ -20,6 +20,7 @@ void my_hash::start(){
 void my_hash::my_func()
 {
     string s;
+    unsigned int rand = 0;
     while (true) {
         s = random_string(rand_r() % SIZE_OF_RAND_STR + 1);
         string sha = picosha2::hash256_hex_string(s);
@@ -46,8 +47,9 @@ string my_hash::random_string(const int len) {
             "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
             "1234567890";
     string s;
+    unsigned int rand = time(nullptr);
     for (int i = 0; i < len; ++i) {
-        char tmp = alph[rand() % (sizeof(alph) - 1)];
+        char tmp = alph[rand_r() % (sizeof(alph) - 1)];
         s = s + tmp;
     }
     return s;
