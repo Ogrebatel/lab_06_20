@@ -21,7 +21,7 @@ void my_hash::my_func()
 {
     string s;
     while (true) {
-        s = random_string(rand_r(time(nullptr)) % SIZE_OF_RAND_STR + 1);
+        s = random_string(rand_r(&time(nullptr)) % SIZE_OF_RAND_STR + 1);
         string sha = picosha2::hash256_hex_string(s);
         bool is_right_format =
                 (sha.find(WHAT_YOU_NEED)
@@ -47,7 +47,7 @@ string my_hash::random_string(const int len) {
             "1234567890";
     string s;
     for (int i = 0; i < len; ++i) {
-        char tmp = alph[rand_r(time(nullptr)) % (sizeof(alph) - 1)];
+        char tmp = alph[rand_r(&time(nullptr)) % (sizeof(alph) - 1)];
         s = s + tmp;
     }
     return s;
