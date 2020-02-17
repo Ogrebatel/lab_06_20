@@ -41,7 +41,6 @@ void my_hash::my_func()
 }
 
 string my_hash::random_string(const int len) {
-
     static const char alph[] =
             "abcdefghijklmnopqrstuvwxyz"
             "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -65,12 +64,12 @@ void my_hash::log_init()
                     logging::keywords::time_based_rotation
                     = boost::log::sinks::file::rotation_at_time_point{0, 0, 0},
                     logging::keywords::format =
-                            "[%TimeStamp%] [%ThreadID%] [%Severity%] %Message%");
+                    "[%TimeStamp%] [%ThreadID%] [%Severity%] %Message%");
 
     logging::add_console_log
             (
                     std::cout,
                     logging::keywords::format =
-                            "[%TimeStamp%] [%ThreadID%] [%Severity%]: %Message%");
+                    "[%TimeStamp%] [%ThreadID%] [%Severity%]: %Message%");
     logging::add_common_attributes();
 }

@@ -4,11 +4,12 @@
 #define INCLUDE_HEADER_HPP_
 
 #include <iostream>
-#include "picosha2.h"
+#include <picosha2.h>
 #include <thread>
 #include <vector>
 #include <mutex>
 #include <cstring>
+#include <string>
 #include <boost/log/core.hpp>
 #include <boost/log/trivial.hpp>
 #include <boost/log/expressions.hpp>
@@ -17,7 +18,6 @@
 #include <boost/log/utility/setup/console.hpp>
 #include <boost/log/support/date_time.hpp>
 #include <boost/log/sources/severity_logger.hpp>
-#include <boost/log/utility/setup/console.hpp>
 #include <boost/log/sinks.hpp>
 #include <boost/core/null_deleter.hpp>
 #include <boost/log/expressions/keyword.hpp>
@@ -26,13 +26,16 @@
 #define WHAT_YOU_NEED "0000"
 #define SIZE_FILE 10*1024*1024
 
-using namespace std;
+using std::vector;
+using std::string;
+using std::mutex;
+using std::thread;
 namespace logging = boost::log;
 
 class my_hash {
 public:
     my_hash();
-    my_hash(unsigned input_num_of_threads);
+    explicit my_hash(unsigned input_num_of_threads);
 
 //------------------------------------------------------
 
